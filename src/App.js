@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
 
-function App() {
+const App = () => {
+  const headerRef = useRef(null);
+
+  useEffect(() => {
+    gsap.from(headerRef.current, { opacity: 0, y: -50, duration: 1 });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="text-center">
+      <header ref={headerRef} className="text-4xl font-bold mt-10">
+        Welcome to My Portfolio
       </header>
     </div>
   );
-}
+};
 
 export default App;
